@@ -1,23 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import { Row, Divider } from "antd";
+import { useState } from 'react';
+
+import foods from "./foods.json";
+
+import FoodBox from './components/FoodBox';
+import AddFoodForm from './components/AddFoodForm';
+import Search from './components/Search';
+
 
 function App() {
+  const [foodDB, setFood] = useState(foods);
+  const createFood = item =>{
+    setFood([item ,...foodDB])
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AddFoodForm createFood = {createFood}/>
+      <Search/>
+      {/* <Button> Hide Form / Add New Food </Button> */}
+
+
+
+      <Divider>Food List</Divider>
+      <Row style={{ width: '100%', justifyContent: 'center' }}>
+        {foodDB.map(item => <FoodBox food={item} />)}
+      </Row>
+      {/* <FoodBox food={ {
+        name: "Orange",
+        calories: 85,
+        image: "https://i.imgur.com/abKGOcv.jpg",
+        servings: 1
+      }} /> */}
     </div>
   );
 }
