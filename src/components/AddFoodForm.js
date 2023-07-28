@@ -22,16 +22,16 @@ const AddFoodForm = (props) => {
             <Divider>Add Food Entry</Divider>
 
             <label>Name</label>
-            <Input value={undefined} type="text" onChange={(e) => {setName(e.target.value)}} placeholder='Name of Food'/>
+            <Input value={undefined} name="name" type="text" onChange={(e) => {setName(e.target.value)}} placeholder='Name of Food'/>
 
             <label>Image</label>
-            <Input value={undefined} type="text" onChange={(e) => {setImage(e.target.value)}} placeholder='http://example.com/image/of/food'/>
+            <Input value={undefined} name="image" type="text" onChange={(e) => {setImage(e.target.value)}} placeholder='http://example.com/image/of/food'/>
 
             <label>Calories</label>
-            <Input value={undefined} type="number" onChange={(e) => {setCal(e.target.value)}} />
+            <Input value={undefined} name="cal" type="number" onChange={(e) => {setCal(e.target.value)}} />
 
             <label>Servings</label>
-            <Input value={undefined} type="number" onChange={(e) => {setSer(e.target.value)}} />
+            <Input value={undefined} name="ser" type="number" onChange={(e) => {setSer(e.target.value)}} />
 
             <button type="submit" onClick={storeFood}>Create</button>
         </form>

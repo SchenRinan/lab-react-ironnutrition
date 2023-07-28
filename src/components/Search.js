@@ -5,8 +5,8 @@ const Search  = props => {
         <>
       <Divider>Search</Divider>
 
-      <label>Search</label>
-      <Input value={undefined} type="text" onChange={() => {}} placeholder='Enter search food query'/>
+      
+      <Input value={undefined} type="text" name='search' onChange={(e) => {props.findFood(e)}} placeholder='Enter search food query'/>
     </>
     );
 }
